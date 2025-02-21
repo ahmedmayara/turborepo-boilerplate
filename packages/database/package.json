@@ -1,15 +1,26 @@
 {
   "name": "@repo/database",
   "version": "1.0.0",
+  "type": "module",
+  "main": "./generated/client/index.js",
+  "types": "./generated/client/index.d.ts",
   "exports": {
-    ".": "./src/client.ts"
+    ".": {
+      "types": "./generated/client/index.d.ts",
+      "import": "./generated/client/index.js"
+    },
+    "./client": {
+      "import": "./src/client.ts"
+    }
   },
   "scripts": {
+    "build": "tsup",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:push": "prisma db push",
-    "db:seed": "tsx src/seed.ts",
-    "dev": "tsup src/* --watch",
+    "db:seed": "tsx ./src/seed.ts",
+    "db:studio": "prisma studio",
+    "dev": "tsup --watch",
     "format": "prisma format",
     "generate": "prisma generate",
     "lint": "eslint . --max-warnings 0",
@@ -23,7 +34,8 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "eslint": "^8.57.0",
+    "@types/node": "^20.11.24",
+    "eslint": "^9",
     "prisma": "latest",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",

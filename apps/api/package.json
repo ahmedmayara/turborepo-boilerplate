@@ -1,0 +1,37 @@
+{
+  "name": "@repo/api",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "test": "cross-env NODE_ENV=test vitest"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@hono/zod-openapi": "^0.18.3",
+    "@oslojs/crypto": "^1.0.1",
+    "@oslojs/encoding": "^1.1.0",
+    "@repo/database": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@scalar/hono-api-reference": "^0.5.169",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "dotenv-expand": "^12.0.1",
+    "hono": "^4.6.19",
+    "hono-pino": "^0.7.0",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "stoker": "^1.4.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.11.17",
+    "cross-env": "^7.0.3",
+    "tsx": "^4.7.1",
+    "vitest": "^3.0.4"
+  }
+}

@@ -1,12 +1,16 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
-  "compilerOptions": { "plugins": [{ "name": "next" }] },
-  "include": [
-    "next-env.d.ts",
-    "next.config.js",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/lib/api": ["./src/lib/api/index.ts"],
+      "@/lib/api/client": ["./src/lib/api/client/src/index.ts"]
+    }
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
